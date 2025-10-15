@@ -1571,7 +1571,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
-  //#define POWER_LOSS_RECOVERY
+  #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     #define PLR_ENABLED_DEFAULT   false // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
@@ -1636,11 +1636,11 @@
   // LCD's font must contain the characters. Check your selected LCD language.
   //#define UTF_FILENAME_SUPPORT
 
-  //#define LONG_FILENAME_HOST_SUPPORT    // Get the long filename of a file/folder with 'M33 <dosname>' and list long filenames with 'M20 L'
+  #define LONG_FILENAME_HOST_SUPPORT    // Get the long filename of a file/folder with 'M33 <dosname>' and list long filenames with 'M20 L'
   //#define LONG_FILENAME_WRITE_SUPPORT   // Create / delete files with long filenames via M28, M30, and Binary Transfer Protocol
   //#define M20_TIMESTAMP_SUPPORT         // Include timestamps by adding the 'T' flag to M20 commands
 
-  //#define SCROLL_LONG_FILENAMES         // Scroll long filenames in the SD card menu
+  #define SCROLL_LONG_FILENAMES         // Scroll long filenames in the SD card menu
 
   //#define SD_ABORT_NO_COOLDOWN          // Leave the heaters on after Stop Print (not recommended!)
 
@@ -2648,7 +2648,7 @@
  *
  * Enable PARK_HEAD_ON_PAUSE to add the G-code M125 Pause and Park.
  */
-//#define ADVANCED_PAUSE_FEATURE
+#define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
   #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
@@ -2949,9 +2949,9 @@
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
    * The default pins can be found in your board's pins file.
    */
-  //#define X_CS_PIN      -1
-  //#define Y_CS_PIN      -1
-  //#define Z_CS_PIN      -1
+  #define X_CS_PIN      44
+  #define Y_CS_PIN      64
+  #define Z_CS_PIN      40
   //#define X2_CS_PIN     -1
   //#define Y2_CS_PIN     -1
   //#define Z2_CS_PIN     -1
@@ -2963,7 +2963,7 @@
   //#define U_CS_PIN      -1
   //#define V_CS_PIN      -1
   //#define W_CS_PIN      -1
-  //#define E0_CS_PIN     -1
+  #define E0_CS_PIN     42
   //#define E1_CS_PIN     -1
   //#define E2_CS_PIN     -1
   //#define E3_CS_PIN     -1
@@ -2977,10 +2977,10 @@
    * The default SW SPI pins are defined the respective pins files,
    * but you can override or define them here.
    */
-  //#define TMC_USE_SW_SPI
+  #define TMC_USE_SW_SPI
   //#define TMC_SPI_MOSI  -1
-  //#define TMC_SPI_MISO  -1
-  //#define TMC_SPI_SCK   -1
+  #define TMC_SPI_MISO  5
+  #define TMC_SPI_SCK   6
 
   // @section tmc/serial
 
@@ -3168,13 +3168,13 @@
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    * @section tmc/stallguard
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
+    #define X_STALL_SENSITIVITY  22
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
+    #define Y_STALL_SENSITIVITY  22
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
@@ -3186,8 +3186,8 @@
     //#define U_STALL_SENSITIVITY  8
     //#define V_STALL_SENSITIVITY  8
     //#define W_STALL_SENSITIVITY  8
-    //#define SPI_ENDSTOPS              // TMC2130/TMC5160 only
-    //#define IMPROVE_HOMING_RELIABILITY
+    #define SPI_ENDSTOPS              // TMC2130/TMC5160 only
+    #define IMPROVE_HOMING_RELIABILITY
   #endif
 
   // @section tmc/config
