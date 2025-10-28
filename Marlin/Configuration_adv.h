@@ -296,8 +296,8 @@
  * THERMAL_PROTECTION_HYSTERESIS and/or THERMAL_PROTECTION_PERIOD
  */
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
-  #define THERMAL_PROTECTION_PERIOD 60        // (seconds)  // 40
-  #define THERMAL_PROTECTION_HYSTERESIS 8     // (°C)       // 4
+  #define THERMAL_PROTECTION_PERIOD 40        // (seconds)  
+  #define THERMAL_PROTECTION_HYSTERESIS 4     // (°C)       
 
   #define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
   #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
@@ -316,8 +316,8 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
-  #define WATCH_TEMP_PERIOD  60               // (seconds) // 40
-  #define WATCH_TEMP_INCREASE 5               // (°C)      // 2
+  #define WATCH_TEMP_PERIOD  40               // (seconds) 
+  #define WATCH_TEMP_INCREASE 2               // (°C)      
 #endif
 
 /**
@@ -605,7 +605,7 @@
  *   PWM on pin OC2A. Only use this option if you don't need PWM on 0C2A. (Check your schematic.)
  *   USE_OCR2A_AS_TOP sacrifices duty cycle control resolution to achieve this broader range of frequencies.
  */
-//#define FAST_PWM_FAN    // Increase the fan PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
+#define FAST_PWM_FAN    // Increase the fan PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
 #if ENABLED(FAST_PWM_FAN)
   //#define FAST_PWM_FAN_FREQUENCY 31400  // Define here to override the defaults below
   //#define USE_OCR2A_AS_TOP
